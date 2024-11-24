@@ -24,12 +24,12 @@ public class BookController {
 
     @GetMapping(path = "/books", produces = "application/json")
     public List<Book> index() {
-        return bookDAO.index();
+        return bookDAO.getList();
     }
 
     @GetMapping(path = "/sorted-books", produces = "application/json")
     public List<Book> indexSortedByTitle() {
-        List<Book> books = bookDAO.index();
+        List<Book> books = bookDAO.getList();
 
         //Сортировка списка книг по названию в обратном алфавитном порядке
         return books.stream()
@@ -39,7 +39,7 @@ public class BookController {
 
     @GetMapping(path = "/grouped-books", produces = "application/json")
     public Map<String, List<Book>> indexGroupByAuthor() {
-        List<Book> books = bookDAO.index();
+        List<Book> books = bookDAO.getList();
 
         //Группировка книг по автору
         return books.stream()
