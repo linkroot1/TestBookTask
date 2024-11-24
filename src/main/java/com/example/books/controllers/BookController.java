@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api")
 public class BookController {
 
     private final BookDAO bookDAO;
@@ -27,7 +27,7 @@ public class BookController {
         return bookDAO.index();
     }
 
-    @GetMapping(path = "/sorted_books", produces = "application/json")
+    @GetMapping(path = "/sorted-books", produces = "application/json")
     public List<Book> indexSortedByTitle() {
         List<Book> books = bookDAO.index();
 
@@ -37,7 +37,7 @@ public class BookController {
                 .collect(Collectors.toList());
     }
 
-    @GetMapping(path = "/grouped_books", produces = "application/json")
+    @GetMapping(path = "/grouped-books", produces = "application/json")
     public Map<String, List<Book>> indexGroupByAuthor() {
         List<Book> books = bookDAO.index();
 
