@@ -31,7 +31,7 @@ public class BookDAOImpl implements BookDAO {
     }
 
     @Override
-    public void save(Book book) {
+    public void create(Book book) {
         SimpleJdbcInsert simpleJdbcInsert = new SimpleJdbcInsert(jdbcTemplate)
                 .withTableName("book")
                 .usingGeneratedKeyColumns("id");
