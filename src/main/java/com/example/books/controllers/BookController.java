@@ -47,8 +47,7 @@ public class BookController {
     }
 
     @PostMapping(path = "/create", produces = "application/json")
-    public List<Book> create(@RequestBody Book book) {
+    public void create(@RequestBody Book book) {
         bookDAO.save(book);
-        return index();
     }
 }
